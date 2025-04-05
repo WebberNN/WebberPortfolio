@@ -35,7 +35,7 @@ const About = () => {
           </p>
         </motion.div>
         
-        <div className="grid md:grid-cols-2 gap-12 items-start">
+        <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-start">
           {/* About Content */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -96,7 +96,7 @@ const About = () => {
                 <i className='bx bx-bulb text-secondary mr-2'></i> Fun Facts
               </h3>
               
-              <div className="grid grid-cols-1 xs:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4">
                 {funFacts.map((fact, index) => (
                   <motion.div 
                     key={index}

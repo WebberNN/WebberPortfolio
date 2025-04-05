@@ -27,7 +27,7 @@ export const AnimatedSkillBar = ({ skill, delay = 0, showDetails = false }: Anim
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div className="flex justify-between items-center mb-1 flex-wrap gap-1">
+      <div className="flex justify-between items-center mb-2 flex-wrap gap-1.5">
         <div className="flex items-center flex-wrap">
           <span className="font-medium break-words">{skill.name}</span>
           {showDetails && skill.yearsOfExperience && (
