@@ -166,7 +166,7 @@
   }
   
   .btn-outline {
-    @apply border border-primary/20 text-primary hover:bg-primary/10;
+    @apply border border-secondary text-secondary hover:bg-secondary/10;
   }
   
   .btn-text {
@@ -178,12 +178,57 @@
   }
   
   .btn-icon {
-    @apply inline-flex items-center justify-center;
+    @apply inline-flex items-center justify-center gap-2;
   }
   
-  .btn-icon svg, 
-  .btn-icon i {
-    @apply mr-2;
+  .btn-icon i, 
+  .btn-icon svg {
+    @apply text-lg;
+  }
+  
+  /* Icons */
+  .icon-sm {
+    @apply text-base;
+  }
+  
+  .icon-md {
+    @apply text-lg;
+  }
+  
+  .icon-lg {
+    @apply text-2xl;
+  }
+  
+  .icon-xl {
+    @apply text-3xl;
+  }
+  
+  .icon-circle {
+    @apply rounded-full flex items-center justify-center;
+  }
+  
+  .icon-circle-sm {
+    @apply w-8 h-8;
+  }
+  
+  .icon-circle-md {
+    @apply w-10 h-10;
+  }
+  
+  .icon-circle-lg {
+    @apply w-12 h-12;
+  }
+  
+  .icon-primary {
+    @apply text-primary;
+  }
+  
+  .icon-secondary {
+    @apply text-secondary;
+  }
+  
+  .icon-muted {
+    @apply text-muted-foreground;
   }
   
   /* Badge styles */

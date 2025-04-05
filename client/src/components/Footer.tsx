@@ -16,7 +16,7 @@ const Footer = () => {
     { 
       platform: 'GitHub',
       icon: 'bxl-github', 
-      href: 'https://github.com',
+      href: 'https://github.com/easandra',
       color: 'hover:text-[#6e5494]'
     },
     { 
@@ -47,8 +47,8 @@ const Footer = () => {
           <div className="md:col-span-2">
             <Link href="/" className="text-xl font-heading font-bold text-white flex items-center">
               <span className="text-primary">&lt;</span>
-              Dev
-              <span className="text-secondary">Portfolio</span>
+              Emmanuel
+              <span className="text-secondary">Adeleke</span>
               <span className="text-primary">/&gt;</span>
             </Link>
             <p className="mt-4 text-muted-foreground max-w-md">
@@ -108,14 +108,14 @@ const Footer = () => {
             <ul className="space-y-3">
               <li className="flex items-start">
                 <i className='bx bx-envelope text-primary mr-2 mt-1'></i>
-                <a href="mailto:alex@example.com" className="text-muted-foreground hover:text-primary transition-colors">
-                  alex@example.com
+                <a href="mailto:devmighty277@gmail.com" className="text-muted-foreground hover:text-primary transition-colors">
+                  devmighty277@gmail.com
                 </a>
               </li>
               <li className="flex items-start">
                 <i className='bx bx-map text-primary mr-2 mt-1'></i>
                 <span className="text-muted-foreground">
-                  San Francisco, CA
+                  Remote Worldwide
                 </span>
               </li>
               <li className="flex items-start">
@@ -138,7 +138,7 @@ const Footer = () => {
         
         <div className="mt-12 pt-6 border-t border-white/5 flex flex-col md:flex-row justify-between items-center">
           <p className="text-sm text-muted-foreground order-2 md:order-1 mt-4 md:mt-0">
-            &copy; {new Date().getFullYear()} Dev Portfolio. All rights reserved.
+            &copy; {new Date().getFullYear()} Emmanuel Adeleke. All rights reserved.
           </p>
           
           <div className="flex space-x-6 order-1 md:order-2">

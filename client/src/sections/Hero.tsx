@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import profileImage from '../assets/emmanuel-profile.jpg';
 
 const Hero = () => {
   return (
@@ -16,7 +17,15 @@ const Hero = () => {
           >
             <h1 className="text-4xl md:text-6xl font-heading font-bold leading-tight">
               <span className="text-white">Hi, I'm</span><br/>
-              <span className="text-primary">Alex Johnson</span><br/>
+              <motion.span 
+                className="text-primary"
+                initial={{ backgroundPosition: "0% 0%" }}
+                animate={{ backgroundPosition: "100% 0%" }}
+                transition={{ repeat: Infinity, duration: 3, repeatType: "reverse" }}
+                style={{ backgroundSize: "200% auto", WebkitBackgroundClip: "text", backgroundClip: "text" }}
+              >
+                Emmanuel Adeleke
+              </motion.span><br/>
               <span className="text-secondary">Full-Stack Developer</span>
             </h1>
             <p className="mt-6 text-lg text-muted-foreground max-w-lg">
@@ -27,20 +36,52 @@ const Hero = () => {
             <div className="mt-10 flex flex-wrap gap-4">
               <motion.a 
                 href="#contact" 
-                className="px-8 py-3 bg-primary text-white rounded-md hover:bg-primary/80 transition-colors font-medium"
+                className="btn btn-primary btn-icon"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
+                <i className='bx bx-envelope'></i>
                 Contact Me
               </motion.a>
               <motion.a 
                 href="#projects" 
-                className="px-8 py-3 border border-secondary text-secondary rounded-md hover:bg-secondary/10 transition-colors font-medium"
+                className="btn btn-outline btn-icon"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
+                <i className='bx bx-code-alt'></i>
                 View Projects
               </motion.a>
+            </div>
+            
+            <div className="mt-8 flex items-center gap-4">
+              <a 
+                href="https://github.com/easandra" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-muted-foreground hover:text-primary transition-colors"
+                aria-label="GitHub"
+              >
+                <i className='bx bxl-github text-2xl'></i>
+              </a>
+              <a 
+                href="https://linkedin.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-muted-foreground hover:text-primary transition-colors"
+                aria-label="LinkedIn"
+              >
+                <i className='bx bxl-linkedin text-2xl'></i>
+              </a>
+              <a 
+                href="https://twitter.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-muted-foreground hover:text-primary transition-colors"
+                aria-label="Twitter"
+              >
+                <i className='bx bxl-twitter text-2xl'></i>
+              </a>
             </div>
           </motion.div>
           
@@ -51,19 +92,24 @@ const Hero = () => {
             transition={{ duration: 0.5, delay: 0.2 }}
           >
             <div className="w-full h-80 md:h-[450px] bg-card rounded-xl overflow-hidden relative floating">
-              <img 
-                src="https://images.unsplash.com/photo-1605379399642-870262d3d051?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2106&q=80" 
-                alt="Developer at work" 
-                className="w-full h-full object-cover opacity-80"
-              />
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="w-72 h-72 rounded-full overflow-hidden border-4 border-primary/30 shadow-xl">
+                  <img 
+                    src={profileImage}
+                    alt="Emmanuel Adeleke" 
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </div>
               <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent"></div>
               
               <div className="absolute bottom-6 left-6 right-6 terminal-block">
                 <p className="text-sm text-muted-foreground">
                   <span className="text-secondary">const</span> <span className="text-primary">developer</span> = {'{'}
-                  <br/>&nbsp;&nbsp;name: <span className="text-success">'Alex Johnson'</span>,
+                  <br/>&nbsp;&nbsp;name: <span className="text-success">'Emmanuel Adeleke'</span>,
                   <br/>&nbsp;&nbsp;specialty: <span className="text-success">'Full-Stack'</span>,
-                  <br/>&nbsp;&nbsp;experience: <span className="text-error">5</span> + <span className="text-success">' years'</span>
+                  <br/>&nbsp;&nbsp;location: <span className="text-success">'Remote Worldwide'</span>,
+                  <br/>&nbsp;&nbsp;github: <span className="text-success">'github.com/easandra'</span>
                   <br/>{'}'};
                 </p>
               </div>

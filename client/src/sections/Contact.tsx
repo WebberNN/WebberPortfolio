@@ -169,7 +169,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <p className="text-sm text-muted-foreground">Email</p>
-                    <a href="mailto:alex@example.com" className="text-foreground hover:text-secondary">alex@example.com</a>
+                    <a href="mailto:devmighty277@gmail.com" className="text-foreground hover:text-secondary">devmighty277@gmail.com</a>
                   </div>
                 </div>
                 
@@ -179,7 +179,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <p className="text-sm text-muted-foreground">Location</p>
-                    <p className="text-foreground">San Francisco, CA</p>
+                    <p className="text-foreground">Remote Worldwide</p>
                   </div>
                 </div>
                 
@@ -198,7 +198,7 @@ const Contact = () => {
                 <p className="text-sm text-muted-foreground mb-4">Connect with me on social media</p>
                 <div className="flex space-x-4">
                   <a 
-                    href="https://github.com" 
+                    href="https://github.com/easandra" 
                     className="w-10 h-10 rounded-full bg-card flex items-center justify-center border border-white/10 hover:bg-primary/20 transition-colors"
                     target="_blank"
                     rel="noopener noreferrer"

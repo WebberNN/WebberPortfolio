@@ -1,37 +1,41 @@
 export const skills = [
   {
     name: "Frontend",
-    items: ["React", "Vue.js", "JavaScript", "TypeScript", "HTML5", "CSS3", "Tailwind", "SASS"]
+    items: ["React", "Next.js", "JavaScript", "TypeScript", "HTML5", "CSS3", "Tailwind", "Styled Components", "Framer Motion"]
   },
   {
     name: "Backend",
-    items: ["Node.js", "Express", "Python", "Django", "GraphQL", "REST APIs"]
+    items: ["Node.js", "Express", "NestJS", "GraphQL", "REST APIs", "Authentication & Authorization"]
   },
   {
     name: "Databases",
-    items: ["MongoDB", "PostgreSQL", "MySQL", "Firebase"]
+    items: ["MongoDB", "PostgreSQL", "MySQL", "Redis", "Prisma", "Drizzle ORM"]
   },
   {
-    name: "Tools & Others",
-    items: ["Git", "Docker", "AWS", "CI/CD", "Jest", "Webpack"]
+    name: "Tools & DevOps",
+    items: ["Git", "GitHub Actions", "Docker", "AWS", "Vercel", "CI/CD", "Jest", "Vitest"]
+  },
+  {
+    name: "Mobile & Others",
+    items: ["React Native", "Expo", "Progressive Web Apps", "Responsive Design", "Accessibility"]
   }
 ];
 
 export const funFacts = [
   {
-    text: "I've written code in 12 different programming languages",
-    highlight: "12 different programming languages"
+    text: "I've written code in 8 different programming languages",
+    highlight: "8 different programming languages"
   },
   {
-    text: "My first computer was a Commodore 64",
-    highlight: "Commodore 64"
+    text: "I've contributed to 5 open-source projects",
+    highlight: "5 open-source projects"
   },
   {
-    text: "I've contributed to 8 open-source projects",
-    highlight: "8 open-source projects"
+    text: "I learned to code by building a clone of Instagram",
+    highlight: "clone of Instagram"
   },
   {
-    text: "I can solve a Rubik's cube in under 2 minutes",
-    highlight: "under 2 minutes"
+    text: "I once debugged a production issue while on vacation at the beach",
+    highlight: "on vacation at the beach"
   }
 ];

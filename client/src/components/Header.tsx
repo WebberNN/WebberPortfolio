@@ -36,8 +36,8 @@ const Header = () => {
       <nav className="container mx-auto px-6 py-4 flex justify-between items-center">
         <Link href="/" className="text-2xl font-heading font-bold text-white flex items-center">
           <span className="text-primary">&lt;</span>
-          Dev
-          <span className="text-secondary">Portfolio</span>
+          Emmanuel
+          <span className="text-secondary">Adeleke</span>
           <span className="text-primary">/&gt;</span>
         </Link>
         
