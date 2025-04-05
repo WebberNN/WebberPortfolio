@@ -1,10 +1,14 @@
-import { motion } from 'framer-motion';
-import { skills, funFacts } from '@/data/skillsData';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { skills, funFacts, SkillCategory } from '@/data/skillsData';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 import { Icon } from '@iconify/react';
+import { AnimatedSkillBar } from '@/components/AnimatedSkillBar';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
 const About = () => {
   const { ref, controls } = useScrollReveal();
+  const [activeCategory, setActiveCategory] = useState<string>(skills[0].name);
 
   return (
     <section id="about" className="py-20 relative" ref={ref}>
@@ -134,48 +138,78 @@ const About = () => {
               hidden: { opacity: 0, x: 30 },
               visible: { opacity: 1, x: 0, transition: { duration: 0.5 } }
             }}
+            className="space-y-8"
           >
-            <h3 className="text-xl font-heading font-medium mb-6 flex items-center">
-              <i className='bx bx-code-alt text-secondary mr-2'></i> Skills & Technologies
-            </h3>
-            
-            <div className="space-y-8">
-              {skills.map((category, index) => (
-                <motion.div 
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={controls}
-                  variants={{
-                    hidden: { opacity: 0, y: 20 },
-                    visible: { 
-                      opacity: 1, 
-                      y: 0, 
-                      transition: { delay: 0.1 * index, duration: 0.5 } 
-                    }
-                  }}
-                  className="bg-card/50 rounded-xl p-6 border border-white/5 hover:border-primary/20 transition-all duration-300"
+            <div>
+              <h3 className="text-xl font-heading font-medium mb-6 flex items-center">
+                <i className='bx bx-code-alt text-secondary mr-2'></i> Skills & Technologies
+              </h3>
+              
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={controls}
+                variants={{
+                  hidden: { opacity: 0, y: 20 },
+                  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+                }}
+                className="bg-card/50 rounded-xl p-6 border border-white/5 hover:border-primary/20 transition-all duration-300"
+              >
+                <Tabs 
+                  defaultValue={skills[0].name} 
+                  onValueChange={setActiveCategory}
+                  className="w-full"
                 >
-                  <h4 className="text-lg font-medium mb-4 text-primary flex items-center">
-                    {category.name === "Frontend" && <i className='bx bx-layout text-secondary mr-2'></i>}
-                    {category.name === "Backend" && <i className='bx bx-server text-secondary mr-2'></i>}
-                    {category.name === "Databases" && <i className='bx bx-data text-secondary mr-2'></i>}
-                    {category.name === "Tools & Others" && <i className='bx bx-wrench text-secondary mr-2'></i>}
-                    {category.name}
-                  </h4>
-                  <div className="flex flex-wrap gap-2">
-                    {category.items.map((skill, skillIndex) => (
-                      <motion.span 
-                        key={skillIndex} 
-                        className="bg-card px-3 py-2 rounded border border-white/5 flex items-center"
-                        whileHover={{ y: -2, borderColor: 'rgba(139, 92, 246, 0.3)' }}
-                        transition={{ duration: 0.2 }}
+                  <TabsList className="mb-6 w-full justify-start overflow-x-auto flex-nowrap">
+                    {skills.map((category) => (
+                      <TabsTrigger 
+                        key={category.name} 
+                        value={category.name}
+                        className="data-[state=active]:bg-primary/20 data-[state=active]:text-primary"
                       >
-                        {skill}
-                      </motion.span>
+                        {category.name === "Frontend" && <i className='bx bx-layout mr-2'></i>}
+                        {category.name === "Backend" && <i className='bx bx-server mr-2'></i>}
+                        {category.name === "Databases" && <i className='bx bx-data mr-2'></i>}
+                        {category.name === "Tools & DevOps" && <i className='bx bx-wrench mr-2'></i>}
+                        {category.name === "Mobile & Others" && <i className='bx bx-devices mr-2'></i>}
+                        {category.name}
+                      </TabsTrigger>
                     ))}
-                  </div>
-                </motion.div>
-              ))}
+                  </TabsList>
+                  
+                  {skills.map((category) => (
+                    <TabsContent 
+                      key={category.name} 
+                      value={category.name}
+                      className="space-y-3 mt-2"
+                    >
+                      <AnimatePresence mode="wait">
+                        <motion.div
+                          key={category.name}
+                          initial={{ opacity: 0, y: 10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: -10 }}
+                          transition={{ duration: 0.3 }}
+                        >
+                          <div className="grid grid-cols-1 gap-2">
+                            {category.skills.map((skill, index) => (
+                              <AnimatedSkillBar 
+                                key={skill.name} 
+                                skill={skill} 
+                                delay={index * 50}
+                                showDetails={true}
+                              />
+                            ))}
+                          </div>
+                        </motion.div>
+                      </AnimatePresence>
+                    </TabsContent>
+                  ))}
+                </Tabs>
+              </motion.div>
+              
+              <div className="mt-4 text-sm text-muted-foreground px-2">
+                <p>Hover over skills for more details • Proficiency based on years of experience and project complexity</p>
+              </div>
             </div>
             
             {/* Certifications or Education */}

@@ -30,7 +30,11 @@ const Contact = () => {
 
   const contactMutation = useMutation({
     mutationFn: (data: ContactFormValues) => {
-      return apiRequest('POST', '/api/contact', data);
+      return apiRequest({
+        method: 'POST',
+        url: '/api/contact',
+        data
+      });
     },
     onSuccess: () => {
       toast({
