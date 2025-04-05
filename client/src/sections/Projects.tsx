@@ -72,8 +72,9 @@ const Projects = () => {
             {completeApps.map((app, index) => (
               <motion.div 
                 key={index}
-                className="project-card bg-card rounded-xl overflow-hidden border border-white/5 flex flex-col h-full"
+                className="project-card bg-card rounded-xl overflow-hidden border border-border flex flex-col h-full cursor-pointer"
                 variants={itemVariants}
+                onClick={() => handleProjectExpand(index)}
               >
                 <div className="h-48 overflow-hidden">
                   <img 
@@ -91,14 +92,14 @@ const Projects = () => {
                         className={`text-xs ${
                           techIndex % 3 === 0 ? 'bg-primary/20 text-primary' :
                           techIndex % 3 === 1 ? 'bg-secondary/20 text-secondary' :
-                          'bg-white/10 text-muted-foreground'
+                          'bg-card/50 text-muted-foreground'
                         } px-2 py-1 rounded`}
                       >
                         {tech}
                       </span>
                     ))}
                     {app.technologies.length > 3 && (
-                      <span className="text-xs bg-white/10 text-muted-foreground px-2 py-1 rounded">
+                      <span className="text-xs bg-card/50 text-muted-foreground px-2 py-1 rounded">
                         +{app.technologies.length - 3}
                       </span>
                     )}
@@ -193,8 +194,14 @@ const Projects = () => {
             {smallProjects.map((project, index) => (
               <motion.div 
                 key={index}
-                className="project-card bg-card rounded-lg p-6 border border-white/5 hover:border-white/10 transition-colors"
+                className="project-card relative bg-card rounded-lg p-6 border border-border transition-colors cursor-pointer"
                 variants={itemVariants}
+                whileHover={{
+                  y: -5,
+                  boxShadow: '0 10px 30px -15px rgba(var(--primary), 0.2)',
+                  borderColor: 'rgba(var(--primary), 0.2)'
+                }}
+                onClick={() => window.open(project.code, '_blank', 'noopener,noreferrer')}
               >
                 <div className="flex justify-between items-start mb-4">
                   <h4 className="text-lg font-heading font-medium">{project.title}</h4>
@@ -207,7 +214,7 @@ const Projects = () => {
                     <span 
                       key={techIndex} 
                       className={`text-xs ${
-                        techIndex % 2 === 0 ? 'bg-primary/20 text-primary' : 'bg-white/10 text-muted-foreground'
+                        techIndex % 2 === 0 ? 'bg-primary/20 text-primary' : 'bg-card/50 text-muted-foreground'
                       } px-2 py-1 rounded`}
                     >
                       {tech}
@@ -217,14 +224,9 @@ const Projects = () => {
                 <p className="text-sm text-muted-foreground mb-4">
                   {project.description}
                 </p>
-                <a 
-                  href={project.code} 
-                  className="text-primary hover:text-primary/80 text-sm flex items-center transition-colors" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                >
+                <div className="text-primary hover:text-primary/80 text-sm flex items-center transition-colors">
                   <i className='bx bxl-github mr-1'></i> View Source
-                </a>
+                </div>
               </motion.div>
             ))}
           </motion.div>

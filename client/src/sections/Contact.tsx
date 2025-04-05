@@ -91,7 +91,7 @@ const Contact = () => {
                 <input 
                   type="text" 
                   id="name" 
-                  className={`w-full px-4 py-3 rounded-lg bg-background border ${errors.name ? 'border-destructive' : 'border-white/10'} text-foreground focus:outline-none focus:ring-2 focus:ring-primary`}
+                  className={`w-full px-4 py-3 rounded-lg bg-background border ${errors.name ? 'border-destructive' : 'border-border'} text-foreground focus:outline-none focus:ring-2 focus:ring-primary`}
                   placeholder="Your name"
                   {...register('name')}
                 />
@@ -105,7 +105,7 @@ const Contact = () => {
                 <input 
                   type="email" 
                   id="email" 
-                  className={`w-full px-4 py-3 rounded-lg bg-background border ${errors.email ? 'border-destructive' : 'border-white/10'} text-foreground focus:outline-none focus:ring-2 focus:ring-primary`}
+                  className={`w-full px-4 py-3 rounded-lg bg-background border ${errors.email ? 'border-destructive' : 'border-border'} text-foreground focus:outline-none focus:ring-2 focus:ring-primary`}
                   placeholder="your.email@example.com"
                   {...register('email')}
                 />
@@ -119,7 +119,7 @@ const Contact = () => {
                 <textarea 
                   id="message" 
                   rows={5} 
-                  className={`w-full px-4 py-3 rounded-lg bg-background border ${errors.message ? 'border-destructive' : 'border-white/10'} text-foreground focus:outline-none focus:ring-2 focus:ring-primary resize-none`}
+                  className={`w-full px-4 py-3 rounded-lg bg-background border ${errors.message ? 'border-destructive' : 'border-border'} text-foreground focus:outline-none focus:ring-2 focus:ring-primary resize-none`}
                   placeholder="Your message..."
                   {...register('message')}
                 ></textarea>
@@ -159,7 +159,7 @@ const Contact = () => {
               visible: { opacity: 1, x: 0, transition: { duration: 0.5 } }
             }}
           >
-            <div className="bg-background rounded-xl p-8 border border-white/5">
+            <div className="bg-background rounded-xl p-8 border border-border">
               <h3 className="text-xl font-heading font-medium mb-6">Let's Connect</h3>
               
               <div className="space-y-6">
@@ -199,7 +199,7 @@ const Contact = () => {
                 <div className="flex space-x-4">
                   <a 
                     href="https://github.com/easandra" 
-                    className="w-10 h-10 rounded-full bg-card flex items-center justify-center border border-white/10 hover:bg-primary/20 transition-colors"
+                    className="w-10 h-10 rounded-full bg-card flex items-center justify-center border border-border hover:bg-primary/20 transition-colors"
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="GitHub"
@@ -208,7 +208,7 @@ const Contact = () => {
                   </a>
                   <a 
                     href="https://linkedin.com" 
-                    className="w-10 h-10 rounded-full bg-card flex items-center justify-center border border-white/10 hover:bg-primary/20 transition-colors"
+                    className="w-10 h-10 rounded-full bg-card flex items-center justify-center border border-border hover:bg-primary/20 transition-colors"
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="LinkedIn"
@@ -217,7 +217,7 @@ const Contact = () => {
                   </a>
                   <a 
                     href="https://twitter.com" 
-                    className="w-10 h-10 rounded-full bg-card flex items-center justify-center border border-white/10 hover:bg-primary/20 transition-colors"
+                    className="w-10 h-10 rounded-full bg-card flex items-center justify-center border border-border hover:bg-primary/20 transition-colors"
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="Twitter"
@@ -226,7 +226,7 @@ const Contact = () => {
                   </a>
                   <a 
                     href="https://dribbble.com" 
-                    className="w-10 h-10 rounded-full bg-card flex items-center justify-center border border-white/10 hover:bg-primary/20 transition-colors"
+                    className="w-10 h-10 rounded-full bg-card flex items-center justify-center border border-border hover:bg-primary/20 transition-colors"
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="Dribbble"
