@@ -28,8 +28,8 @@ const Header = () => {
     document.body.style.overflow = '';
   };
 
-  const headerClasses = `fixed w-full top-0 z-50 backdrop-blur-lg border-b border-white/10 transition-all duration-300 ${
-    isScrolled ? 'bg-background/90' : 'bg-transparent'
+  const headerClasses = `fixed w-full top-0 z-50 backdrop-blur-lg border-b border-border transition-all duration-300 ${
+    isScrolled ? 'bg-background/95 shadow-md' : 'bg-transparent'
   }`;
 
   return (
@@ -113,7 +113,7 @@ const Header = () => {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: '100%' }}
               transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-              className="fixed right-0 top-0 bottom-0 w-4/5 max-w-xs bg-background/95 border-l border-white/10 shadow-xl z-50 flex flex-col justify-between py-20 px-6"
+              className="fixed right-0 top-0 bottom-0 w-4/5 max-w-xs bg-background/95 border-l border-border shadow-xl z-50 flex flex-col justify-between py-20 px-6"
             >
               <div className="flex flex-col space-y-8">
                 <motion.h3
@@ -163,13 +163,13 @@ const Header = () => {
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.5 }}
-                  className="border-t border-white/10 pt-4"
+                  className="border-t border-border pt-4"
                 >
                   <h4 className="text-sm font-medium text-foreground/60 mb-3">Connect with me</h4>
                   <div className="flex space-x-4">
                     <a 
                       href="https://github.com/easandra" 
-                      className="flex items-center justify-center w-10 h-10 rounded-full bg-card border border-white/5 text-foreground hover:text-[#6e5494] hover:border-[#6e5494]/30 transition-colors"
+                      className="flex items-center justify-center w-10 h-10 rounded-full bg-card border border-border text-foreground hover:text-[#6e5494] hover:border-[#6e5494]/30 transition-colors"
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label="GitHub"
@@ -178,7 +178,7 @@ const Header = () => {
                     </a>
                     <a 
                       href="https://linkedin.com" 
-                      className="flex items-center justify-center w-10 h-10 rounded-full bg-card border border-white/5 text-foreground hover:text-[#0077b5] hover:border-[#0077b5]/30 transition-colors"
+                      className="flex items-center justify-center w-10 h-10 rounded-full bg-card border border-border text-foreground hover:text-[#0077b5] hover:border-[#0077b5]/30 transition-colors"
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label="LinkedIn"
@@ -187,7 +187,7 @@ const Header = () => {
                     </a>
                     <a 
                       href="https://twitter.com" 
-                      className="flex items-center justify-center w-10 h-10 rounded-full bg-card border border-white/5 text-foreground hover:text-[#1DA1F2] hover:border-[#1DA1F2]/30 transition-colors"
+                      className="flex items-center justify-center w-10 h-10 rounded-full bg-card border border-border text-foreground hover:text-[#1DA1F2] hover:border-[#1DA1F2]/30 transition-colors"
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label="Twitter"

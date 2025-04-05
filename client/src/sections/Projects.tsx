@@ -72,7 +72,7 @@ const Projects = () => {
             {completeApps.map((app, index) => (
               <motion.div 
                 key={index}
-                className="project-card bg-card rounded-xl overflow-hidden border border-border flex flex-col h-full cursor-pointer"
+                className="project-card bg-card rounded-xl overflow-hidden border border-border shadow-md flex flex-col h-full cursor-pointer transition-all duration-300 hover:shadow-lg"
                 variants={itemVariants}
                 onClick={() => handleProjectExpand(index)}
               >
@@ -194,7 +194,7 @@ const Projects = () => {
             {smallProjects.map((project, index) => (
               <motion.div 
                 key={index}
-                className="project-card relative bg-card rounded-lg p-6 border border-border transition-colors cursor-pointer"
+                className="project-card relative bg-card rounded-lg p-6 border border-border shadow-md transition-all duration-300 cursor-pointer"
                 variants={itemVariants}
                 whileHover={{
                   y: -5,

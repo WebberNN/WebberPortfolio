@@ -1,4 +1,5 @@
 import { createContext, useContext, useEffect, useState, ReactNode } from 'react';
+import { useToast } from '@/hooks/use-toast';
 
 type Theme = 'dark' | 'light';
 type ThemeContext = {
@@ -9,6 +10,7 @@ type ThemeContext = {
 const ThemeContext = createContext<ThemeContext | undefined>(undefined);
 
 export const ThemeProvider = ({ children }: { children: ReactNode }) => {
+  const { toast } = useToast();
   // Check localStorage and system preference for initial theme
   const [theme, setTheme] = useState<Theme>(() => {
     // Check if theme is stored in localStorage
@@ -37,7 +39,18 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
   }, [theme]);
 
   const toggleTheme = () => {
-    setTheme(current => current === 'dark' ? 'light' : 'dark');
+    setTheme(current => {
+      const newTheme = current === 'dark' ? 'light' : 'dark';
+      
+      // Show toast notification
+      toast({
+        title: `${newTheme === 'dark' ? '🌙' : '☀️'} Theme Changed`,
+        description: `Switched to ${newTheme} mode`,
+        duration: 1500,
+      });
+      
+      return newTheme;
+    });
   };
 
   return (
