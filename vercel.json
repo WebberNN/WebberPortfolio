@@ -3,24 +3,23 @@
   "builds": [
     {
       "src": "package.json",
-      "use": "@vercel/node",
+      "use": "@vercel/vite",
       "config": {
-        "buildCommand": "npm run build",
-        "outputDirectory": "./dist"
+        "serverEntry": "server/index.ts"
       }
     }
   ],
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "/server/index.ts"
+      "dest": "server/index.ts"
     },
     {
       "handle": "filesystem"
     },
     {
       "src": "/(.*)",
-      "dest": "/server/index.ts"
+      "dest": "index.html"
     }
   ],
   "env": {
