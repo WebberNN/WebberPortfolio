@@ -74,19 +74,42 @@ export const skills: SkillCategory[] = [
 
 export const funFacts = [
   {
-    text: "I've written code in 8 different programming languages",
-    highlight: "8 different programming languages"
+    title: "Fast Learner",
+    description: "Quick to grasp new technologies and frameworks"
   },
   {
-    text: "I've contributed to 5 open-source projects",
-    highlight: "5 open-source projects"
+    title: "Team Player",
+    description: "Excellent collaboration and communication skills"
   },
   {
-    text: "I learned to code by building a clone of Instagram",
-    highlight: "clone of Instagram"
+    title: "Problem Solver",
+    description: "Analytical approach to solving complex challenges"
   },
   {
-    text: "I once debugged a production issue while on vacation at the beach",
-    highlight: "on vacation at the beach"
+    title: "Passionate Coder",
+    description: "Dedicated to writing clean, efficient code"
+  }
+];
+
+export const skillsData = [
+  {
+    name: "React",
+    level: 90,
+    color: "#61DAFB"
+  },
+  {
+    name: "TypeScript",
+    level: 85,
+    color: "#3178C6"
+  },
+  {
+    name: "Node.js",
+    level: 80,
+    color: "#339933"
+  },
+  {
+    name: "Python",
+    level: 75,
+    color: "#3776AB"
   }
 ];

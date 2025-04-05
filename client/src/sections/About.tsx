@@ -1,7 +1,8 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { funFacts, skillsData } from '@/data/skillsData';
+import { funFacts } from '@/data/skillsData';
+import { skillsData } from '@/data/skillsData';
 import AnimatedSkillBar from '@/components/AnimatedSkillBar';
 
 const About = () => {
