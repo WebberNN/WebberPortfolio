@@ -1,8 +1,7 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
-import { funFacts } from '@/data/skillsData';
-import { skillsData } from '@/data/skillsData';
+import { funFacts } from '../data/skillsData';
+import { skillsData } from '../data/skillsData';
 import AnimatedSkillBar from '@/components/AnimatedSkillBar';
 
 const About = () => {
@@ -22,7 +21,7 @@ const About = () => {
             I love turning complex problems into elegant solutions.
           </p>
         </motion.div>
-        
+
         <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-start">
           {/* About Content */}
           <motion.div
@@ -36,7 +35,7 @@ const About = () => {
                 <h3 className="text-xl font-semibold mb-4 flex items-center">
                   <i className='bx bx-bulb text-secondary mr-2'></i> Fun Facts
                 </h3>
-              
+
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4">
                   {funFacts.map((fact, index) => (
                     <motion.div 
@@ -65,7 +64,7 @@ const About = () => {
               <h3 className="text-xl font-semibold mb-6 flex items-center">
                 <i className='bx bx-code-alt text-secondary mr-2'></i> Skills & Technologies
               </h3>
-              
+
               <div className="space-y-4">
                 {skillsData.map((skill, index) => (
                   <AnimatedSkillBar key={index} skill={skill} />
