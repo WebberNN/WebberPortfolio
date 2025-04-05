@@ -2,7 +2,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { funFacts, skills } from '../data/skillsData';
-import { AnimatedSkillBar } from '@/components/AnimatedSkillBar';
+import { AnimatedSkillBar } from '../components/AnimatedSkillBar';
 
 const About = () => {
   return (

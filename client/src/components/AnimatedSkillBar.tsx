@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Skill } from '@/data/skillsData';
+import { Skill } from '../data/skillsData';
 
 interface AnimatedSkillBarProps {
   skill: Skill;
