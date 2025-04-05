@@ -28,8 +28,8 @@ const Header = () => {
     document.body.style.overflow = '';
   };
 
-  const headerClasses = `fixed w-full top-0 z-50 backdrop-blur-lg border-b border-border transition-all duration-300 ${
-    isScrolled ? 'bg-background/95 shadow-md' : 'bg-background/80'
+  const headerClasses = `fixed w-full top-0 z-50 border-b border-border transition-all duration-300 ${
+    isScrolled ? 'bg-background shadow-md' : 'bg-background'
   }`;
 
   return (
@@ -113,8 +113,17 @@ const Header = () => {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: '100%' }}
               transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-              className="fixed right-0 top-0 bottom-0 w-4/5 max-w-xs bg-background/95 border-l border-border shadow-xl z-50 flex flex-col justify-between py-20 px-6"
+              className="fixed right-0 top-0 bottom-0 w-4/5 max-w-xs bg-background border-l border-border shadow-xl z-50 flex flex-col justify-between py-20 px-6"
             >
+              {/* Close button */}
+              <button 
+                className="absolute right-4 top-4 w-10 h-10 flex items-center justify-center rounded-full bg-primary/10 border border-primary/20 text-foreground hover:text-primary/80 transition-colors"
+                onClick={closeMobileMenu}
+                aria-label="Close menu"
+              >
+                <i className='bx bx-x text-2xl'></i>
+              </button>
+              
               <div className="flex flex-col space-y-8">
                 <motion.h3
                   initial={{ opacity: 0, y: -10 }}

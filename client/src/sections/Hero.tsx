@@ -28,9 +28,9 @@ const Hero = () => {
               </motion.span><br/>
               <span className="text-secondary">Full-Stack Developer</span>
             </h1>
-            <p className="mt-4 md:mt-6 text-base md:text-lg text-muted-foreground max-w-lg">
-              Building web experiences that blend creativity with technical excellence. 
-              Specialized in React, Node.js, and modern web technologies.
+            <p className="mt-4 md:mt-6 text-base md:text-lg text-muted-foreground max-w-full sm:max-w-lg break-words">
+              Building web experiences that blend creativity with technical excellence.
+              <br className="hidden xs:block" /> Specialized in React, Node.js, and modern web technologies.
             </p>
             
             <div className="mt-10 flex flex-wrap gap-4">
