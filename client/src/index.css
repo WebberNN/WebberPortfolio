@@ -4,6 +4,40 @@
 
 @layer base {
   :root {
+    /* Light mode variables */
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    
+    --card: 0 0% 98%;
+    --card-foreground: 222.2 84% 4.9%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    
+    --primary: 246 100% 60%;
+    --primary-foreground: 210 40% 98%;
+    
+    --secondary: 187 100% 42%;
+    --secondary-foreground: 210 40% 98%;
+    
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    
+    --accent: 210 40% 90%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 246 100% 60%;
+    
+    --radius: 0.5rem;
+  }
+  
+  .dark {
+    /* Dark mode variables */
     --background: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;
     
@@ -31,8 +65,6 @@
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
     --ring: 246 100% 69%;
-    
-    --radius: 0.5rem;
   }
 }
 
@@ -149,7 +181,7 @@
   
   /* Content Cards */
   .content-card {
-    @apply bg-card rounded-xl p-6 border border-white/5 transition-all duration-300 hover:border-white/10;
+    @apply bg-card rounded-xl p-6 border border-border transition-all duration-300 hover:border-primary/20 hover:shadow-md;
   }
   
   /* Buttons */
@@ -245,7 +277,7 @@
   }
   
   .badge-outline {
-    @apply border border-white/10 text-muted-foreground;
+    @apply border border-border text-muted-foreground;
   }
 }
 
@@ -296,6 +328,6 @@
   
   /* Glass effect */
   .glass {
-    @apply bg-background/50 backdrop-blur-lg border border-white/5;
+    @apply bg-background/50 backdrop-blur-lg border border-border/30;
   }
 }
