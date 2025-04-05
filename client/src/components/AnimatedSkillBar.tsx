@@ -27,16 +27,16 @@ export const AnimatedSkillBar = ({ skill, delay = 0, showDetails = false }: Anim
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div className="flex justify-between items-center mb-1">
-        <div className="flex items-center">
-          <span className="font-medium">{skill.name}</span>
+      <div className="flex justify-between items-center mb-1 flex-wrap gap-1">
+        <div className="flex items-center flex-wrap">
+          <span className="font-medium break-words">{skill.name}</span>
           {showDetails && skill.yearsOfExperience && (
-            <span className="ml-2 text-xs rounded px-2 py-0.5 bg-secondary/20 text-secondary">
+            <span className="ml-2 text-xs rounded px-2 py-0.5 bg-secondary/20 text-secondary whitespace-nowrap">
               {skill.yearsOfExperience} {skill.yearsOfExperience === 1 ? 'year' : 'years'}
             </span>
           )}
         </div>
-        <span className="text-sm font-medium text-muted-foreground">{skill.proficiency}%</span>
+        <span className="text-sm font-medium text-muted-foreground whitespace-nowrap">{skill.proficiency}%</span>
       </div>
       
       <div className="h-2 w-full bg-card/50 rounded-full overflow-hidden">
@@ -67,7 +67,7 @@ export const AnimatedSkillBar = ({ skill, delay = 0, showDetails = false }: Anim
             exit={{ opacity: 0, y: -5 }}
             transition={{ duration: 0.2 }}
           >
-            <span className="block">
+            <span className="block break-words">
               {getSkillDescription(skill.name, skill.proficiency)}
             </span>
           </motion.div>

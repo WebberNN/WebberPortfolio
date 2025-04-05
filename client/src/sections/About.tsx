@@ -96,11 +96,11 @@ const About = () => {
                 <i className='bx bx-bulb text-secondary mr-2'></i> Fun Facts
               </h3>
               
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 xs:grid-cols-2 gap-4">
                 {funFacts.map((fact, index) => (
                   <motion.div 
                     key={index}
-                    className="bg-card rounded-lg p-4 border border-white/5 hover:border-primary/20 transition-all duration-300"
+                    className="bg-card rounded-lg p-4 border border-white/5 hover:border-primary/20 transition-all duration-300 max-w-full break-words"
                     initial={{ opacity: 0, y: 20 }}
                     animate={controls}
                     variants={{
@@ -159,12 +159,12 @@ const About = () => {
                   onValueChange={setActiveCategory}
                   className="w-full"
                 >
-                  <TabsList className="mb-6 w-full justify-start overflow-x-auto flex-nowrap">
+                  <TabsList className="mb-6 w-full justify-start overflow-x-auto flex-nowrap px-1 py-1 max-w-full">
                     {skills.map((category) => (
                       <TabsTrigger 
                         key={category.name} 
                         value={category.name}
-                        className="data-[state=active]:bg-primary/20 data-[state=active]:text-primary"
+                        className="data-[state=active]:bg-primary/20 data-[state=active]:text-primary whitespace-nowrap text-xs sm:text-sm"
                       >
                         {category.name === "Frontend" && <i className='bx bx-layout mr-2'></i>}
                         {category.name === "Backend" && <i className='bx bx-server mr-2'></i>}

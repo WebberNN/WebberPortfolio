@@ -104,7 +104,7 @@ const Projects = () => {
                       </span>
                     )}
                   </div>
-                  <p className="mt-4 text-muted-foreground text-sm">
+                  <p className="mt-4 text-muted-foreground text-sm break-words">
                     {app.description}
                   </p>
                   
@@ -136,15 +136,15 @@ const Projects = () => {
                           className="overflow-hidden"
                         >
                           <div className="pt-3 space-y-2 text-sm">
-                            <div>
+                            <div className="break-words">
                               <span className="text-secondary font-medium">Role: </span>
                               <span className="text-muted-foreground">{app.role}</span>
                             </div>
-                            <div>
+                            <div className="break-words">
                               <span className="text-secondary font-medium">Challenge: </span>
                               <span className="text-muted-foreground">{app.challenges}</span>
                             </div>
-                            <div>
+                            <div className="break-words">
                               <span className="text-secondary font-medium">Solution: </span>
                               <span className="text-muted-foreground">{app.solution}</span>
                             </div>
@@ -221,7 +221,7 @@ const Projects = () => {
                     </span>
                   ))}
                 </div>
-                <p className="text-sm text-muted-foreground mb-4">
+                <p className="text-sm text-muted-foreground mb-4 break-words">
                   {project.description}
                 </p>
                 <div className="text-primary hover:text-primary/80 text-sm flex items-center transition-colors">

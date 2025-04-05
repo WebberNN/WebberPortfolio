@@ -103,13 +103,13 @@ const Hero = () => {
               </div>
               <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent"></div>
               
-              <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 right-4 sm:right-6 terminal-block">
-                <p className="text-xs sm:text-sm text-muted-foreground break-words">
-                  <span className="text-secondary">const</span> <span className="text-primary">developer</span> = {'{'}
-                  <br/>&nbsp;&nbsp;name: <span className="text-success">'Emmanuel Adeleke'</span>,
-                  <br/>&nbsp;&nbsp;specialty: <span className="text-success">'Full-Stack'</span>,
-                  <br/>&nbsp;&nbsp;location: <span className="text-success">'Remote Worldwide'</span>,
-                  <br/>&nbsp;&nbsp;github: <span className="text-success">'github.com/easandra'</span>
+              <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 right-4 sm:right-6 terminal-block overflow-hidden">
+                <p className="text-xs sm:text-sm text-muted-foreground break-words max-w-full">
+                  <span className="text-secondary">const</span> <span className="text-primary">dev</span> = {'{'}
+                  <br/>&nbsp;&nbsp;name: <span className="text-success">'Emmanuel'</span>,
+                  <br/>&nbsp;&nbsp;role: <span className="text-success">'Full-Stack'</span>,
+                  <br/>&nbsp;&nbsp;loc: <span className="text-success">'Remote'</span>,
+                  <br/>&nbsp;&nbsp;gh: <span className="text-success">'easandra'</span>
                   <br/>{'}'};
                 </p>
               </div>
