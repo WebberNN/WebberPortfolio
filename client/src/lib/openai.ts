@@ -1,8 +1,12 @@
 import OpenAI from "openai";
 
+// Check if OpenAI API key is available
+const OPENAI_API_KEY = import.meta.env.VITE_OPENAI_API_KEY || '';
+const hasOpenAIKey = OPENAI_API_KEY.length > 0;
+
 // the newest OpenAI model is "gpt-4o" which was released May 13, 2024. do not change this unless explicitly requested by the user
 const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY || '',
+  apiKey: OPENAI_API_KEY,
   dangerouslyAllowBrowser: true // Used for client-side API calls
 });
 
@@ -150,5 +154,11 @@ export async function getLearningPathForSkill(
     return { steps: [], resources: [] };
   }
 }
+
+// Information about whether the API is available
+export const openaiApiInfo = {
+  isAvailable: hasOpenAIKey,
+  requiresKey: !hasOpenAIKey
+};
 
 export default openai;
