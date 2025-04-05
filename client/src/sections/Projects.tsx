@@ -1,9 +1,11 @@
-import { motion } from 'framer-motion';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { completeApps, smallProjects } from '@/data/projectsData';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 
 const Projects = () => {
   const { ref, controls } = useScrollReveal();
+  const [expandedProject, setExpandedProject] = useState<number | null>(null);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -20,6 +22,10 @@ const Projects = () => {
     visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
   };
 
+  const handleProjectExpand = (index: number) => {
+    setExpandedProject(expandedProject === index ? null : index);
+  };
+
   return (
     <section id="projects" className="py-20 relative bg-card/50" ref={ref}>
       <div className="container mx-auto px-6">
@@ -34,11 +40,11 @@ const Projects = () => {
         >
           <h2 className="text-3xl md:text-5xl font-heading font-bold">
             <span className="text-primary">&lt;</span>
-            Projects
+            Featured Projects
             <span className="text-primary">/&gt;</span>
           </h2>
           <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
-            A collection of applications and projects I've built using various technologies
+            Curated selection of my most impactful work showcasing my skills and problem-solving abilities
           </p>
         </motion.div>
         
@@ -54,7 +60,7 @@ const Projects = () => {
             }}
           >
             <span className="inline-block w-4 h-4 bg-primary mr-3"></span>
-            Complete Applications
+            Major Projects
           </motion.h3>
           
           <motion.div 
@@ -66,20 +72,20 @@ const Projects = () => {
             {completeApps.map((app, index) => (
               <motion.div 
                 key={index}
-                className="project-card bg-card rounded-xl overflow-hidden border border-white/5"
+                className="project-card bg-card rounded-xl overflow-hidden border border-white/5 flex flex-col h-full"
                 variants={itemVariants}
               >
                 <div className="h-48 overflow-hidden">
                   <img 
                     src={app.image} 
                     alt={app.title} 
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover transition-all duration-500 hover:scale-105"
                   />
                 </div>
-                <div className="p-6">
+                <div className="p-6 flex-grow flex flex-col">
                   <h4 className="text-xl font-heading font-medium">{app.title}</h4>
                   <div className="flex flex-wrap gap-2 mt-3">
-                    {app.technologies.map((tech, techIndex) => (
+                    {app.technologies.slice(0, 3).map((tech, techIndex) => (
                       <span 
                         key={techIndex} 
                         className={`text-xs ${
@@ -91,18 +97,70 @@ const Projects = () => {
                         {tech}
                       </span>
                     ))}
+                    {app.technologies.length > 3 && (
+                      <span className="text-xs bg-white/10 text-muted-foreground px-2 py-1 rounded">
+                        +{app.technologies.length - 3}
+                      </span>
+                    )}
                   </div>
                   <p className="mt-4 text-muted-foreground text-sm">
                     {app.description}
                   </p>
+                  
+                  {/* Project Details - Expandable */}
+                  <div className="mt-4 flex-grow">
+                    <button 
+                      onClick={() => handleProjectExpand(index)}
+                      className="text-xs text-primary hover:text-primary/80 flex items-center transition-colors"
+                      aria-expanded={expandedProject === index}
+                    >
+                      {expandedProject === index ? (
+                        <>
+                          <i className='bx bx-chevron-up mr-1'></i> Hide details
+                        </>
+                      ) : (
+                        <>
+                          <i className='bx bx-chevron-down mr-1'></i> Show details
+                        </>
+                      )}
+                    </button>
+                    
+                    <AnimatePresence>
+                      {expandedProject === index && (
+                        <motion.div
+                          initial={{ opacity: 0, height: 0 }}
+                          animate={{ opacity: 1, height: 'auto' }}
+                          exit={{ opacity: 0, height: 0 }}
+                          transition={{ duration: 0.3 }}
+                          className="overflow-hidden"
+                        >
+                          <div className="pt-3 space-y-2 text-sm">
+                            <div>
+                              <span className="text-secondary font-medium">Role: </span>
+                              <span className="text-muted-foreground">{app.role}</span>
+                            </div>
+                            <div>
+                              <span className="text-secondary font-medium">Challenge: </span>
+                              <span className="text-muted-foreground">{app.challenges}</span>
+                            </div>
+                            <div>
+                              <span className="text-secondary font-medium">Solution: </span>
+                              <span className="text-muted-foreground">{app.solution}</span>
+                            </div>
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                  
                   <div className="mt-6 flex justify-between">
                     {app.demo && (
-                      <a href={app.demo} className="text-secondary hover:underline text-sm flex items-center" target="_blank" rel="noopener noreferrer">
+                      <a href={app.demo} className="text-secondary hover:text-secondary/80 text-sm flex items-center transition-colors" target="_blank" rel="noopener noreferrer">
                         <i className='bx bx-link-external mr-1'></i> Live Demo
                       </a>
                     )}
-                    <a href={app.code} className="text-primary hover:underline text-sm flex items-center" target="_blank" rel="noopener noreferrer">
-                      <i className='bx bxl-github mr-1'></i> View Code
+                    <a href={app.code} className="text-primary hover:text-primary/80 text-sm flex items-center transition-colors" target="_blank" rel="noopener noreferrer">
+                      <i className='bx bxl-github mr-1'></i> Source Code
                     </a>
                   </div>
                 </div>
@@ -123,7 +181,7 @@ const Projects = () => {
             }}
           >
             <span className="inline-block w-4 h-4 bg-secondary mr-3"></span>
-            Small Projects
+            Side Projects
           </motion.h3>
           
           <motion.div 
@@ -135,12 +193,14 @@ const Projects = () => {
             {smallProjects.map((project, index) => (
               <motion.div 
                 key={index}
-                className="project-card bg-card rounded-lg p-6 border border-white/5"
+                className="project-card bg-card rounded-lg p-6 border border-white/5 hover:border-white/10 transition-colors"
                 variants={itemVariants}
               >
                 <div className="flex justify-between items-start mb-4">
                   <h4 className="text-lg font-heading font-medium">{project.title}</h4>
-                  <i className={`bx ${project.icon} text-2xl text-secondary`}></i>
+                  <div className="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center">
+                    <i className={`bx ${project.icon} text-xl text-secondary`}></i>
+                  </div>
                 </div>
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.technologies.map((tech, techIndex) => (
@@ -157,8 +217,13 @@ const Projects = () => {
                 <p className="text-sm text-muted-foreground mb-4">
                   {project.description}
                 </p>
-                <a href={project.code} className="text-primary hover:underline text-sm flex items-center" target="_blank" rel="noopener noreferrer">
-                  <i className='bx bxl-github mr-1'></i> View Code
+                <a 
+                  href={project.code} 
+                  className="text-primary hover:text-primary/80 text-sm flex items-center transition-colors" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                >
+                  <i className='bx bxl-github mr-1'></i> View Source
                 </a>
               </motion.div>
             ))}
