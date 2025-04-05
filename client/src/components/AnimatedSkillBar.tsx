@@ -38,7 +38,7 @@ export const AnimatedSkillBar = ({ skill, delay = 0, showDetails = false }: Anim
         </div>
         <span className="text-sm font-medium text-muted-foreground whitespace-nowrap">{skill.proficiency}%</span>
       </div>
-      
+
       <div className="h-2 w-full bg-card/50 rounded-full overflow-hidden">
         <motion.div
           className="h-full rounded-full"

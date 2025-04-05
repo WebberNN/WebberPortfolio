@@ -1,7 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { funFacts } from '../data/skillsData';
-import { skillsData } from '../data/skillsData';
+import { funFacts, skills } from '../data/skillsData';
 import AnimatedSkillBar from '@/components/AnimatedSkillBar';
 
 const About = () => {
@@ -66,7 +65,7 @@ const About = () => {
               </h3>
 
               <div className="space-y-4">
-                {skillsData.map((skill, index) => (
+                {skills[0].skills.map((skill, index) => (
                   <AnimatedSkillBar key={index} skill={skill} />
                 ))}
               </div>
