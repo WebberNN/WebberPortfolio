@@ -4,8 +4,8 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Loader2, Clock, Milestone } from 'lucide-react';
-import { apiRequest } from '@/lib/queryClient';
 import { useToast } from '@/hooks/use-toast';
+import { projectTimelines } from '@/data/recommendationsData';
 
 interface ProjectTimelineProps {
   defaultProjectTitle?: string;
@@ -37,23 +37,24 @@ export function ProjectTimeline({
     setIsLoading(true);
     
     try {
-      // Split the technologies string by commas and trim whitespace
-      const techArray = technologies
-        .split(',')
-        .map(tech => tech.trim())
-        .filter(tech => tech.length > 0);
+      // Simulate API call delay
+      await new Promise(resolve => setTimeout(resolve, 1000));
       
-      // Update the apiRequest to use the correct type
-      const response = await apiRequest<{ milestones: string[] }>({
-        url: '/api/ai/project-timeline',
-        method: 'POST',
-        data: {
-          projectTitle,
-          technologies: techArray
-        }
-      });
+      // Find the closest matching project title
+      let matchedTimeline: string[] = [];
       
-      setMilestones(response.milestones || []);
+      if (projectTitle.toLowerCase().includes('portfolio')) {
+        matchedTimeline = projectTimelines['Portfolio Website'].milestones;
+      } else if (projectTitle.toLowerCase().includes('e-commerce') || projectTitle.toLowerCase().includes('ecommerce') || projectTitle.toLowerCase().includes('store')) {
+        matchedTimeline = projectTimelines['E-commerce Platform'].milestones;
+      } else if (projectTitle.toLowerCase().includes('mobile') || projectTitle.toLowerCase().includes('app')) {
+        matchedTimeline = projectTimelines['Mobile App'].milestones;
+      } else {
+        // Default to portfolio if no match
+        matchedTimeline = projectTimelines['Portfolio Website'].milestones;
+      }
+      
+      setMilestones(matchedTimeline);
       
       toast({
         title: 'Timeline generated',

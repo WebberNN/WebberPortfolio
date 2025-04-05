@@ -5,8 +5,8 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Loader2, BookOpen, Link as LinkIcon, ExternalLink } from 'lucide-react';
-import { apiRequest } from '@/lib/queryClient';
 import { useToast } from '@/hooks/use-toast';
+import { learningPaths } from '@/data/recommendationsData';
 
 interface LearningPathProps {
   defaultSkill?: string;
@@ -37,18 +37,37 @@ export function LearningPath({
     setIsLoading(true);
     
     try {
-      // Update the apiRequest to use the correct type
-      const response = await apiRequest<{ steps: string[], resources: string[] }>({
-        url: '/api/ai/learning-path',
-        method: 'POST',
-        data: {
-          skill,
-          currentLevel
-        }
-      });
+      // Simulate API call delay
+      await new Promise(resolve => setTimeout(resolve, 1000));
       
-      setSteps(response.steps || []);
-      setResources(response.resources || []);
+      // Find the closest matching skill
+      let matchedPath = { steps: [], resources: [] };
+      
+      if (skill.toLowerCase().includes('react') || skill.toLowerCase().includes('frontend')) {
+        matchedPath = {
+          steps: learningPaths['React'][currentLevel].steps,
+          resources: learningPaths['React'][currentLevel].resources
+        };
+      } else if (skill.toLowerCase().includes('node') || skill.toLowerCase().includes('backend')) {
+        matchedPath = {
+          steps: learningPaths['Node.js'][currentLevel].steps,
+          resources: learningPaths['Node.js'][currentLevel].resources
+        };
+      } else if (skill.toLowerCase().includes('python') || skill.toLowerCase().includes('data')) {
+        matchedPath = {
+          steps: learningPaths['Python'][currentLevel].steps,
+          resources: learningPaths['Python'][currentLevel].resources
+        };
+      } else {
+        // Default to React if no match
+        matchedPath = {
+          steps: learningPaths['React'][currentLevel].steps,
+          resources: learningPaths['React'][currentLevel].resources
+        };
+      }
+      
+      setSteps(matchedPath.steps);
+      setResources(matchedPath.resources);
       
       toast({
         title: 'Learning path generated',

@@ -3,10 +3,9 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Loader2, Clock, Code, BookOpen, Sparkles } from 'lucide-react';
-import { apiRequest } from '@/lib/queryClient';
-import { ProjectRecommendation } from '@/lib/openai-service';
-import type { Response } from 'express';
 import { useToast } from '@/hooks/use-toast';
+import { projectRecommendations as staticRecommendations } from '@/data/recommendationsData';
+import { ProjectRecommendation } from '@/lib/ai-service';
 
 interface ProjectRecommendationsProps {
   userSkills: string[];
@@ -25,19 +24,11 @@ export function ProjectRecommendations({
     setIsLoading(true);
     
     try {
-      const completedProjects = ['Portfolio Website', 'E-commerce Store', 'Weather App'];
+      // Simulate API call delay
+      await new Promise(resolve => setTimeout(resolve, 1000));
       
-      const response = await apiRequest<{ recommendations: ProjectRecommendation[] }>({
-        url: '/api/ai/project-recommendations',
-        method: 'POST',
-        data: {
-          skills: userSkills,
-          interests: userInterests,
-          completedProjects
-        }
-      });
-      
-      setRecommendations(response.recommendations || []);
+      // Use static recommendations data
+      setRecommendations(staticRecommendations);
       
       toast({
         title: 'Recommendations generated',
