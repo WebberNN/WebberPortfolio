@@ -29,7 +29,7 @@ const Header = () => {
   };
 
   const headerClasses = `fixed w-full top-0 z-50 backdrop-blur-lg border-b border-border transition-all duration-300 ${
-    isScrolled ? 'bg-background/95 shadow-md' : 'bg-transparent'
+    isScrolled ? 'bg-background/95 shadow-md' : 'bg-background/80'
   }`;
 
   return (

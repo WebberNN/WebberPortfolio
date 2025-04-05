@@ -27,10 +27,10 @@ const Projects = () => {
   };
 
   return (
-    <section id="projects" className="py-20 relative bg-card/50" ref={ref}>
-      <div className="container mx-auto px-6">
+    <section id="projects" className="py-16 md:py-20 relative bg-card/50" ref={ref}>
+      <div className="container mx-auto px-4 sm:px-6">
         <motion.div 
-          className="mb-16 text-center"
+          className="mb-12 md:mb-16 text-center"
           initial={{ opacity: 0, y: 20 }}
           animate={controls}
           variants={{
@@ -38,20 +38,20 @@ const Projects = () => {
             visible: { opacity: 1, y: 0 }
           }}
         >
-          <h2 className="text-3xl md:text-5xl font-heading font-bold">
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-heading font-bold">
             <span className="text-primary">&lt;</span>
             Featured Projects
             <span className="text-primary">/&gt;</span>
           </h2>
-          <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
+          <p className="mt-3 md:mt-4 text-sm md:text-base text-muted-foreground max-w-2xl mx-auto">
             Curated selection of my most impactful work showcasing my skills and problem-solving abilities
           </p>
         </motion.div>
         
         {/* Complete Apps */}
-        <div className="mb-16">
+        <div className="mb-12 md:mb-16">
           <motion.h3 
-            className="text-2xl font-heading font-semibold mb-8 flex items-center"
+            className="text-xl md:text-2xl font-heading font-semibold mb-5 md:mb-8 flex items-center"
             initial={{ opacity: 0, x: -20 }}
             animate={controls}
             variants={{
@@ -59,12 +59,12 @@ const Projects = () => {
               visible: { opacity: 1, x: 0 }
             }}
           >
-            <span className="inline-block w-4 h-4 bg-primary mr-3"></span>
+            <span className="inline-block w-3 h-3 md:w-4 md:h-4 bg-primary mr-2 md:mr-3"></span>
             Major Projects
           </motion.h3>
           
           <motion.div 
-            className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+            className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-8"
             variants={containerVariants}
             initial="hidden"
             animate={controls}
@@ -173,7 +173,7 @@ const Projects = () => {
         {/* Small Projects */}
         <div>
           <motion.h3 
-            className="text-2xl font-heading font-semibold mb-8 flex items-center"
+            className="text-xl md:text-2xl font-heading font-semibold mb-5 md:mb-8 flex items-center"
             initial={{ opacity: 0, x: -20 }}
             animate={controls}
             variants={{
@@ -181,12 +181,12 @@ const Projects = () => {
               visible: { opacity: 1, x: 0 }
             }}
           >
-            <span className="inline-block w-4 h-4 bg-secondary mr-3"></span>
+            <span className="inline-block w-3 h-3 md:w-4 md:h-4 bg-secondary mr-2 md:mr-3"></span>
             Side Projects
           </motion.h3>
           
           <motion.div 
-            className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
+            className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6"
             variants={containerVariants}
             initial="hidden"
             animate={controls}
@@ -194,7 +194,7 @@ const Projects = () => {
             {smallProjects.map((project, index) => (
               <motion.div 
                 key={index}
-                className="project-card relative bg-card rounded-lg p-6 border border-border shadow-md transition-all duration-300 cursor-pointer"
+                className="project-card relative bg-card rounded-lg p-4 md:p-6 border border-border shadow-md transition-all duration-300 cursor-pointer"
                 variants={itemVariants}
                 whileHover={{
                   y: -5,
